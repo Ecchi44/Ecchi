@@ -1,0 +1,162 @@
+.margin{width: 990px;margin:0 auto;}
+#header{
+  height:141px;
+  .welcome{height:30px;
+    h2{font:16px/30px "";width:150px;
+      background-color: #fbfbfb;
+      border-bottom: 1px solid #eee;
+      span{
+        color:#f00;
+      }
+      em{
+        &:hover{cursor: pointer;}
+      }
+    }
+  }
+  .pay_logo{
+    margin: 10px 0;
+    height: 90px;
+    .pay_l_l{float: left;
+      a{
+        background: url(../images/step_01.jpg) no-repeat 0 15px;
+        width: 240px;
+        height: 90px;
+        display: block;
+      }
+    }
+    .pay_l_r{
+      padding-top: 25px;
+      width: 531px;
+      height: 65px;
+      float: right;
+    }
+  }
+}
+.car_t{
+  color: #666;
+  font:12px/38px "";
+  text-align: center;
+  .car_msg{
+    background-color: #eee;
+    display: none;
+    .t1{
+      width: 60px;
+      input{
+        float: left;
+        margin: 13px 5px 0 17px;
+      }
+    }
+    .t2{
+      width: 380px;
+    }
+    .t3{
+      width:120px;
+    }
+    .t4{
+      width:120px;
+    }
+    .t5{
+      width: 120px;
+    }
+    .t6{
+      width: 90px;
+    }
+    .t7{
+      width: 100px;
+    }
+    tbody{
+      background: #fffdee;
+      .tr{
+        width: 984px;
+        height: 90px;
+        overflow: visible;
+        line-height: 90px;
+        border-bottom: 1px solid #eee;
+        color: #666;
+        .num{
+          width:80px;
+        }
+        .del{cursor: pointer;color: blue}
+      }
+    }
+    .end{
+      height: 132px;
+      background-color: #eee;
+      color: #333;
+      .pay_m{
+        width:960px;
+        margin-top: 15px;
+        .pay_mt{
+          height:17px;
+          font:12px/17px "";
+          input{
+            margin-left: 19px;
+            margin-top: 2px;
+            float: left;
+          }
+          .all{margin: 0 15px;
+          }
+          span{float: left;}
+          i{
+            width: 11px;
+            height: 11px;
+            margin: 3px;
+            display:block;
+            float: left;
+          }
+          .del_ico{
+            background: url("../images/del.jpg") no-repeat;
+            float: left;
+          }
+          .return{
+            background: url("../images/return.jpg") no-repeat;
+            margin-left: 15px;
+            float: left;
+          }
+          .del_all{
+            cursor: pointer;
+            float: left;
+          }
+          .pay_mtr{
+            float: right;
+          }
+        }
+        .pay_mb{
+          font-size: 16px;
+          margin-top: 15px;
+          text-align: right;
+          font-weight: 700;
+          color: #333;
+          .pay_all{
+            color: #ff8700;
+          }
+        }
+      }
+    }
+  }
+  .empty{
+    height: 130px;
+    padding-top: 50px;
+    background: url(../images/flow_basket.jpg) no-repeat 228px 30px;
+    line-height: 20px;
+    text-align: left;
+    padding-left: 350px;
+    border: 1px solid #ccc;
+    width: 638px;
+  a{
+    color: #196cba;
+    margin-right:5px;}
+  }
+}
+
+.footer{
+  .link{
+    text-align: center;
+    p{
+      line-height: 25px;
+      a{
+        margin: 0 12px;
+      }
+    }
+  }
+}
