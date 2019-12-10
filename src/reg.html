@@ -13,7 +13,7 @@
 <div id="banner" class="margin clear">
     <p>欢迎来到银座网上商城</p>
 </div>
-<div id="user" class="margin clear">
+<div id="reg_" class="margin clear">
     <div class="user">
         <div class="u_top">
             <img src="./images/box_top.jpg" alt="">
@@ -23,20 +23,20 @@
         </div>
         <div class="u_c">
             <ul>
-                <li><span class="txt_c"><img src="./images/user_xing.jpg" alt="">用户名：</span><p><input type="text" name="user" class="txt"><span class="red user_msg">&nbsp;</span></p></li>
+                <li><span class="txt_c"><img src="./images/user_xing.jpg" alt="">用户名：</span><p><input type="text" name="user" class="txt" id="user"><span class="red user_msg">&nbsp;</span></p></li>
                 <li><span class="txt_c"></span><p>6-20位字符，可由中文、英文、数字及"_"、"-"组成</p></li>
-                <li><span class="txt_c"><img src="./images/user_xing.jpg" alt="">密码：</span><p><input type="password" name="password" class="txt"><span class="red pass_mag">&nbsp;</span></p></li>
+                <li><span class="txt_c"><img src="./images/user_xing.jpg" alt="">密码：</span><p><input type="password" name="password" class="txt" id="pass1"><span class="red pass_mag">&nbsp;</span></p></li>
                 <li><span class="txt_c"></span><p>6-20位字符，可由英文、数字及"_"、"-"组成</p></li>
-                <li><span class="txt_c"><img src="./images/user_xing.jpg" alt="">确认密码：</span><p><input type="password" name="qr_password" class="txt"><span class="red qr_pass">&nbsp;</span></p></li>
+                <li><span class="txt_c"><img src="./images/user_xing.jpg" alt="">确认密码：</span><p><input type="password" name="qr_password" class="txt" id="pass2"><span class="red qr_pass">&nbsp;</span></p></li>
                 <li><span class="txt_c"></span><p>6-20位字符，可由英文、数字及"_"、"-"组成</p></li>
-                <li><span class="txt_c"><img src="./images/user_xing.jpg" alt="">验证手机：</span><p><input type="tel" name="phone" class="txt"><span class="red tel_msg">&nbsp;</span></p></li>
+                <li><span class="txt_c"><img src="./images/user_xing.jpg" alt="">验证手机：</span><p><input type="tel" name="phone" class="txt" id="tel"><span class="red tel_msg">&nbsp;</span></p></li>
                 <li><span class="txt_c"></span><p>请输入常用手机，将用来找回密码、接收订单通知等</p></li>
-                <li><span class="txt_c"><img src="./images/user_xing.jpg" alt="">验证码：</span><p><input type="text" class="yzm txt" name="captcha"><span class="captcha"></span><span>点击验证码可刷新</span><span class="red yzm_msg">&nbsp;</span></p></li>
-                <li><span class="txt_c"></span><p><input type="checkbox" name="agreement" checked="checked">您已阅读并认可银座网<a href="#">《用户服务协议》</a></p></li>
+                <li><span class="txt_c"><img src="./images/user_xing.jpg" alt="">验证码：</span><p><input type="text" class="yzm txt" name="captcha" id="captcha"><span class="captcha"></span><span>点击验证码可刷新</span><span class="red yzm_msg">&nbsp;</span></p></li>
+                <li><span class="txt_c"></span><p><input type="checkbox" name="agreement" id="agreement">您已阅读并认可银座网<a href="#">《用户服务协议》</a></p></li>
                 <li><span class="txt_c"></span><p><input type="button" value="注册" class="reg_in"></p></li>
             </ul>
         </div>
-        <div class="u_b">
+        <div class="u_b">,
             <img src="./images/box_button.jpg" alt="">
         </div>
     </div>
@@ -55,4 +55,59 @@
     </div>
 </div>
 </body>
+<script src="./js/cookie.js"></script>
+<script>
+    class Reg{
+        constructor() {
+            this.id = document.getElementById("id");
+            this.ps1 = document.getElementById("pass1");
+            this.ps2 = document.getElementById("pass2");
+            this.tel = document.getElementById("tel");
+            this.yzm = document.getElementById("captcha");
+            this.xy = document.getElementById("agreement");
+            this.addEvent();
+        }
+        addEvent(){
+            let that = this;
+            this.reg.onclick = function () {
+                that.u = that.user.value;
+                that.p = that.pass.value;
+                that.setMsg();
+            }
+        }
+        setMsg(){
+            this.msg = getCookie("userMsg") ? JSON.parse(getCookie("userMsg")) : [];
+            if (this.msg.length<1){
+                this.msg.push({
+                    user:this.u,
+                    pass:this.p,
+                    onoff:0
+                });
+                this.success();
+            }else{
+                let type = this.msg.some((val,idx)=>{
+                    return val.user === this.u;
+                });
+                if (type){
+                    alert("用户名重复！")
+                }else{
+                    this.msg.push({
+                        user:this.u,
+                        pass:this.p,
+                        onoff:0
+                    });
+                    this.sucess();
+                }
+            }
+            setCookie("userMsg",JSON.stringify(this.msg));
+        }
+        success(){
+            alert("注册成功！正在跳转到登录...")
+            setTimeout(()=>{
+                location.href = "./log.html"
+            },2000)
+        }
+    }
+    new  Reg();
+</script>
 </html>
