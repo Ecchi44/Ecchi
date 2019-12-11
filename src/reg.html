@@ -33,8 +33,7 @@
                 <li><span class="txt_c"></span><p>6-20位字符，可由英文、数字及"_"、"-"组成</p></li>
                 <li><span class="txt_c"><img src="./images/user_xing.jpg" alt="">验证手机：</span><p><input type="tel" name="phone" class="txt" id="tel"><span class="red tel_msg">&nbsp;</span></p></li>
                 <li><span class="txt_c"></span><p>请输入常用手机，将用来找回密码、接收订单通知等</p></li>
-                <li><span class="txt_c"><img src="./images/user_xing.jpg" alt="">验证码：</span><p><input type="text" class="yzm txt" name="captcha" id="captcha"><span class="captcha"></span><span>点击验证码可刷新</span><span class="red yzm_msg">&nbsp;</span></p></li>
-                <li><span class="txt_c"></span><p><input type="checkbox" name="agreement" id="agreement">您已阅读并认可银座网<a href="#">《用户服务协议》</a></p></li>
+                <li><span class="txt_c"></span><p><input type="checkbox" name="agreement" id="agreement">您已阅读并认可银座网<a href="#">《用户服务协议》</a><span class="red qr_xy"></span></p></li>
                 <li><span class="txt_c"></span><p><input type="button" value="注册" class="reg_in" id="regin"></p></li>
             </ul>
 <!--            </form>-->
@@ -67,10 +66,9 @@
     class Reg{
         constructor() {
             this.user = document.getElementById("user");
-            this.pass1 = document.getElementById("pass1");
+            this.pass = document.getElementById("pass1");
             this.pass2 = document.getElementById("pass2");
             this.tel = document.getElementById("tel");
-            this.yzm = document.getElementById("captcha");
             this.xy = document.getElementById("agreement");
             this.suc = document.getElementById("success");
             this.regin = document.getElementById("regin");
@@ -78,98 +76,55 @@
             this.pass_msg = document.querySelector(".pass_msg");
             this.qr_pass = document.querySelector(".qr_pass");
             this.tel_msg = document.querySelector(".tel_msg");
-            this.yzm_msg = document.querySelector(".yzm_msg");
-            this.addEvent();
+            this.qr_xy = document.querySelector(".qr_xy");
+            this.init();
         }
-        // checkAll(){
-        //     let that = this;
-        //     this.user.oninput = function () {
-        //         let reg =/^[a-zA-Z0-9_-]{6,20}$/;
-        //         if (!reg.test(that.user.value)){
-        //             that.user_msg.innerHTML = "用户名格式不正确！";
-        //             return false;
-        //         }
-        //         that.user_msg.innerHTML = "";
-        //         return true;
-        //     };
-        //     this.pass1.oninput = function () {
-        //         let reg =/^[a-zA-Z0-9_-]{6,20}$/;
-        //         if (!reg.test(that.pass1.value)){
-        //             that.pass_msg.innerHTML = "密码格式不正确！";
-        //             return false;
-        //         }
-        //         that.pass_msg.innerHTML = "";
-        //         return true;
-        //
-        //     };
-        //     this.pass2.oninput = function () {
-        //         if (pass2.value!==pass1.value){
-        //             that.qr_pass.innerHTML = "两次密码不一致！";
-        //             return false;
-        //         }
-        //         that.qr_pass.innerHTML = "";
-        //         return true;
-        //     };
-        //     this.tel.oninput = function () {
-        //         let reg =/^1\d{10}$/;
-        //         if (!reg.test(that.tel.value)){
-        //             that.tel_msg.innerHTML = "手机号码格式不正确！";
-        //             return false;
-        //         }
-        //         that.tel_msg.innerHTML = "";
-        //         return true;
-        //     };
-        //     return !!(this.user && this.pass1 &&  this.pass2 && this.tel);
-        // }
-        addEvent(){
-            let that = this;
-            let name = this.user.oninput = function () {
-                let reg =/^[a-zA-Z0-9_-]{6,20}$/;
-                if (!reg.test(that.user.value)){
-                    that.user_msg.innerHTML = "用户名格式不正确！";
-                    return false;
-                }
-                that.user_msg.innerHTML = "";
-                return true;
-            };
-            let psd1 = this.pass1.oninput = function () {
-                let reg =/^[a-zA-Z0-9_-]{6,20}$/;
-                if (!reg.test(that.pass1.value)){
-                    that.pass_msg.innerHTML = "密码格式不正确！";
-                    return false;
-                }
-                that.pass_msg.innerHTML = "";
-                return true;
-            };
-            let psd2 = this.pass2.oninput = function () {
-                if (pass2.value!==pass1.value){
-                    that.qr_pass.innerHTML = "两次密码不一致！";
-                    return false;
-                }
-                that.qr_pass.innerHTML = "";
-                return true;
-            };
-            let tel = this.tel.oninput = function () {
-                let reg =/^1\d{10}$/;
-                if (!reg.test(that.tel.value)){
-                    that.tel_msg.innerHTML = "手机号码格式不正确！";
-                    return false;
-                }
-                that.tel_msg.innerHTML = "";
-                return true;
-            };
-            this.regin.onclick = function () {
-                if (name&&psd1&&psd2&&tel){
-                    that.u = that.user.value;
-                    that.p = that.pass1.value;
-                    that.setMsg()
-                }else {
-                    return false;
-                }
+        init(){
+            this.regin.onclick=()=>{
+                this.u =this.user.value;
+                this.p =this.pass.value;
+                this.p2 =this.pass2.value;
+                this.t =this.tel.value;
+                this.register();
             }
         }
-        setMsg(){
-            this.msg = getCookie("userMsg") ? JSON.parse(getCookie("userMsg")) : [];
+        register(){
+            let reg_u = /^[a-z0-9_-]{6,20}$/;
+            let u = reg_u.test(this.n);
+            if(!u){
+                this.user_msg.innerHTML="用户名格式不正确";
+            }else{
+                this.user_msg.innerHTML="";
+            }
+            let reg_p = /^[a-z0-9_-]{6,20}$/;
+            var p = reg_p.test(this.p);
+            if(!p){
+                this.pass_msg.innerHTML="密码格式不正确";
+            }else{
+                this.pass_msg.innerHTML="";
+            }
+            if(this.p2!==this.p){
+                this.qr_pass.innerHTML = "两次输入的密码不一致！"
+            }
+            let reg_t = /^1\d{10}$/;
+            let t = reg_t.test(this.t);
+            if(!t){
+                this.tel_msg.innerHTML="请输入正确电话号码！";
+            }else{
+                this.tel_msg.innerHTML="";
+            }
+            let xy = this.xy.checked;
+            if(!xy){
+                this.qr_xy.innerHTML="请阅读并勾选用户服务协议！";
+            }else{
+                this.qr_xy.innerHTML="";
+            }
+            if(u&&p&&this.p2&&t&&xy){
+                this.setM()
+            }
+        }
+        setM(){
+            this.msg = getCookie("user") ? JSON.parse(getCookie("user")) : [];
             if (this.msg.length<1){
                 this.msg.push({
                     user:this.u,
@@ -182,7 +137,7 @@
                     return val.user === this.u;
                 });
                 if (type){
-                    alert("用户名重复！")
+                    alert("用户名已被注册！")
                 }else{
                     this.msg.push({
                         user:this.u,
@@ -192,7 +147,7 @@
                     this.success();
                 }
             }
-            setCookie("userMsg",JSON.stringify(this.msg));
+            setCookie("user",JSON.stringify(this.msg));
         }
         success(){
             this.suc.style.display = "block";
@@ -201,6 +156,6 @@
             },2000)
         }
     }
-    new  Reg();
+    new  Reg;
 </script>
 </html>

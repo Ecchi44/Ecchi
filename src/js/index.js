@@ -2,8 +2,8 @@
     "use strict";
 class List{
     constructor() {
-        this.url = "http://localhost/online/data/goods.json";
-        this.food = document.querySelector(".foots");
+        this.url = "http://localhost:844/data/goods.json";
+        this.food = document.querySelector(".foods");
         this.load();
         this.addEvent();
     }
@@ -17,9 +17,9 @@ class List{
     display(){
         let str = "";
         for (let i=0;i<this.res.length;i++){
-            str += `<li index="${this.res[i].goodsId}>
+            str += `<li index="${this.res[i].goodsId}">
  <a class="img" href="" target="_blank">
-                                <img alt="${this.res[i].img}" src="">
+                                <img alt="" src="${this.res[i].img}">
                             </a>
                             <p class="title">
                                 <a href="" target="_blank">${this.res[i].name}</a>
@@ -28,11 +28,12 @@ class List{
                             <i class="addCar">加入购物车</i>
 </li>`
         }
+        console.log(this.food);
         this.food.innerHTML = str;
     }
     addEvent(){
         var that = this;
-        this.cont.addEventListener("click",function(eve){
+        this.food.addEventListener("click",function(eve){
             var e = eve || window.event;
             var target = e.target || e.srcElement;
             if(target.className === "addCar"){
@@ -42,7 +43,7 @@ class List{
         })
     }
     setCookie(){
-        this.goods = getCookie("goodsDECookie") ? JSON.parse(getCookie("goodsDECookie")) : [];
+        this.goods = getCookie("goodsCookie") ? JSON.parse(getCookie("goodsCookie")) : [];
         if(this.goods.length < 1){
             this.goods.push({
                 id:this.id,
@@ -63,7 +64,7 @@ class List{
                 this.goods[i].num++;
             }
         }
-        setCookie("goodsDECookie",JSON.stringify(this.goods))
+        setCookie("goodsCookie",JSON.stringify(this.goods))
     }
 }
 new  List;

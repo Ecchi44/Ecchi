@@ -6,7 +6,7 @@
             this.welcome = document.querySelector(".welcome");
             this.user = this.welcome.querySelector(".user_n");
             this.exit = this.welcome.querySelector(".tc_dl");
-            this.getMsg();
+            this.getM();
             this.addEvent();
 
         }
@@ -14,12 +14,12 @@
             let that = this;
             this.exit.onclick = function(){
                 that.msg[that.i].onoff = "0";
-                setCookie("userMsg",JSON.stringify(that.msg));
+                setCookie("user",JSON.stringify(that.msg));
                 location.reload();
             }
         }
-        getMsg(){
-            this.msg = getCookie("userMsg") ? JSON.parse(getCookie("userMsg")) : [];
+        getM(){
+            this.msg = getCookie("user") ? JSON.parse(getCookie("user")) : [];
             this.i = null;
             var type = this.msg.some((value,index)=> {
                 this.i = index;

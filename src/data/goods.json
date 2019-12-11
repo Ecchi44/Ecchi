@@ -1,50 +1,50 @@
 [{
-  "img":"./img/1.img",
+  "img":"./data/img/1.jpg",
   "name":"品客（Pringles）薯片酸乳酪洋葱味110g（新老包装随机发货）",
   "price":"8.90",
   "goodsId":"1"
 },{
-  "img":"./img/2.img",
+  "img":"./data/img/2.jpg",
   "name":"沃隆 每日坚果 休闲零食 坚果炒货 扁桃仁腰果榛子核桃 妈妈款（35g*30）1050g",
   "price":"218.00",
   "goodsId":"2"
 },{
-  "img":"./img/3.img",
+  "img":"./data/img/3.jpg",
   "name":"江中集团 猴姑酥性饼干720g（30包）15天装 猴头菇制成",
   "price":"95.00",
   "goodsId":"3"
 },{
-  "img":"./img/4.img",
+  "img":"./data/img/4.jpg",
   "name":"燕之坊 黑芝麻粉 烘焙 熟粉 五谷杂粮 禅食代餐粉 420g",
   "price":"49.80",
   "goodsId":"4"
 },{
-  "img":"./img/5.img",
+  "img":"./data/img/5.jpg",
   "name":"雪花啤酒（Snowbeer）冰酷 330ml*24听 整箱装",
   "price":"45.90",
   "goodsId":"5"
 },{
-  "img":"./img/6.img",
+  "img":"./data/img/6.jpg",
   "name":"寿全斋 姜茶暖心礼盒（红糖姜茶2盒+红枣姜茶2盒） 姜枣茶大姨妈茶姜糖月经红糖 共480g",
   "price":"79.00",
   "goodsId":"6"
 },{
-  "img":"./img/7.img",
+  "img":"./data/img/7.jpg",
   "name":"鲁花 调味品 生抽酱油 非转基因 酿造工艺 自然鲜酱油1L",
   "price":"21.00",
   "goodsId":"7"
 },{
-  "img":"./img/8.img",
+  "img":"./data/img/8.jpg",
   "name":"皇上皇 中华老字号 金福五花腊肉500g",
   "price":"55.00",
   "goodsId":"8"
 },{
-  "img":"./img/9.img",
+  "img":"./data/img/9.jpg",
   "name":"北大荒 百年寒地 优质东北大米 粳米 珍珠米 5kg",
   "price":"28.90",
   "goodsId":"9"
 },{
-  "img":"./img/10.img",
+  "img":"./data/img/10.jpg",
   "name":"福临门 食用油 非转基因家香味一级大豆油5L 中粮出品",
   "price":"62.90",
   "goodsId":"10"
