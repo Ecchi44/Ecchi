@@ -74,17 +74,18 @@
                 if (this.msg[i].user === this.u && this.msg[i].pass === this.p){
                     location.href = "./index.html";
                     this.msg[i].onoff = 1;
-                    setCookie("userMsg",JSON.stringify(this.Msg));
+                    setCookie("userMsg",JSON.stringify(this.msg));
                     type = 1;
                 }else if (this.msg[i].user === this.u && this.msg[i].pass !== this.p){
-                    this.p_ero.innerHTML = "密码输入错误！忘记密码请重置（未实装）"
+                    this.p_ero.innerHTML = "密码输入错误！";
+                    type = 2;
                 }
             }
-            if (type === 0){
-                this.u_ero.innerHTML = "用户名不存在,请您注册再试~";
+            if (type == 0){
+                this.u_ero.innerHTML = "用户名不存在！";
             }
         }
     }
-    new Log();
+    new Log;
 </script>
 </html>

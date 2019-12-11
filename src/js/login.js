@@ -1,15 +1,17 @@
 ;(function () {
+    "use strict";
     class Index{
         constructor() {
-            this.login = document.querySelector(".login");
+            this.login = document.querySelector(".logreg");
             this.welcome = document.querySelector(".welcome");
-            this.user = this.welcome.querySelector("span");
-            this.exit = this.welcome.querySelector("em");
+            this.user = this.welcome.querySelector(".user_n");
+            this.exit = this.welcome.querySelector(".tc_dl");
             this.getMsg();
-            this.addEvent()
+            this.addEvent();
+
         }
         addEvent(){
-            var that = this;
+            let that = this;
             this.exit.onclick = function(){
                 that.msg[that.i].onoff = "0";
                 setCookie("userMsg",JSON.stringify(that.msg));
@@ -27,8 +29,10 @@
                 this.login.style.display = "none";
                 this.welcome.style.display = "block";
                 this.user.innerHTML = this.msg[this.i].user;
+            }else {
+                location.href = "./log.html"
             }
         }
     }
-    new Index();
+    new Index;
 })();

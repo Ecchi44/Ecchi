@@ -8,8 +8,8 @@
 </head>
 <body>
 <div id="header" class="margin clear">
-    <div class="welcome" style="display: block;">
-        <h2>会员<span></span>您好！<em>退出登录</em></h2>
+    <div class="welcome">
+        <h2>会员<span class="user_n"></span>您好！<em class="tc_dl">退出登录</em></h2>
     </div>
     <div class="pay_logo">
         <div class="pay_l_l">
@@ -37,7 +37,7 @@
             <tbody>
                 <tr class="tr">
                     <td><input type="checkbox"></td>
-                    <td>2</td>
+                    <td class="txt"><p><img src="./images/step_01.jpg" alt=""><span></span></p></td>
                     <td>现货</td>
                     <td>3</td>
                     <td><input type="number" min="1" class="num" value="1"></td>
@@ -96,4 +96,79 @@
     </div>
 </div>
 </body>
+<script src="./js/cookie.js"></script>
+<script>
+    class car{
+        constructor(){
+            this.welcome = document.querySelector(".welcome");
+            this.user = this.welcome.querySelector(".user_n");
+            this.exit = this.welcome.querySelector(".tc_dl");
+            this.getMsg();
+            this.addEvent()
+        }
+        addEvent(){
+            let that = this;
+            this.exit.onclick = function(){
+                that.msg[that.i].onoff = "0";
+                setCookie("userMsg",JSON.stringify(that.msg));
+                location.reload();
+            }
+        }
+        getMsg(){
+            this.msg = getCookie("userMsg") ? JSON.parse(getCookie("userMsg")) : [];
+            this.i = null;
+            var type = this.msg.some((value,index)=> {
+                this.i = index;
+                return value.onoff === 1;
+            });
+            if (type){
+                console.log(this.msg[this.i].user);
+                this.user.innerHTML = this.msg[this.i].user;
+
+            }else {
+                location.href = "./log.html";
+            }
+        }
+    }
+    new car;
+</script>
+<script>
+    class Cart{
+        constructor() {
+            this.url = "http://localhost/online/data/goods.json";
+            this.tbody = document.querySelector("tbody");
+            this.addEvent();
+            this.load();
+        }
+        load(){
+            ajaxGet(this.url,(res)=>{
+                this.res = JSON.parse(res);
+
+                this.getCookie()
+            })
+        }
+        getCookie(){
+            this.goods = getCookie("goodsCookie") ? JSON.parse(getCookie("goodsCookie")) : [];
+            this.display();
+        }
+        display(){
+            var str = "";
+            for (let i=0;i<this.res.length;i++){
+                for (let j=0;j<this.goods.length;j++){
+                    if(this.res[i].goodsId === this.goods[j].id){
+                        str += `<tr class="tr">
+                    <td><input type="checkbox"></td>
+                    <td class="txt"><p><img src="${this.res[i].img}" alt=""><span>${this.res[i].name}</span></p></td>
+                    <td>现货</td>
+                    <td>${this.res[i].price}</td>
+                    <td><input type="number" min="1" class="num" value="${this.goods[j].num}"></td>
+                    <td>￥${this.res[i].price}*${this.goods[j].num}</td>
+                    <td><b class="del">删除</b></td>
+                </tr>`
+                    }
+                }
+            }
+        }
+    }
+</script>
 </html>

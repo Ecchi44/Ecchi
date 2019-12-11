@@ -6,8 +6,21 @@ $font: 700 16px/34px "";
   .top{height:30px;
     .logreg{font:12px/28px "";width:88px;height:28px;margin-top:1px;
       background: url("../images/sprite_topbar.png") 0 -30px;
-      float: right;border-radius: 0 0 0 6px;
+      float: left;
       a{color: #484848;border-right: 1px solid nth($color,1);text-indent: 9px;display: inline-block;width: 42px;float: left;}
+    }
+    .welcome{height:30px;
+      display: none;
+      h2{font:16px/30px "";
+        background-color: #fbfbfb;
+        border-bottom: 1px solid #eee;
+        span{
+          color:#f00;
+        }
+        em{
+          &:hover{cursor: pointer;}
+        }
+      }
     }
   }
   .logo{
@@ -215,7 +228,7 @@ $font: 700 16px/34px "";
           }
         }
       }
-      h3{width:95px;float: left;text-indent: 19px;font:700 14px/40px "";
+      h3{width:95px;float: right;text-indent: 19px;font:700 14px/40px "";
         background: url("../images/settlement_index.jpg") no-repeat;
       a{color: nth($color,3);text-align: center;}
       }
@@ -781,6 +794,9 @@ $font: 700 16px/34px "";
                 color: #e00404;
                 font-size: 18px;
                 display: block;
+              }
+              .addCar{
+                width:100px;height:20px;display: block;margin:0 auto;background: cornflowerblue;color: #fff;text-align: center;line-height: 20px;border-radius: 6px;cursor: pointer;
               }
             }
           }
