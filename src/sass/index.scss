@@ -542,12 +542,17 @@ $font: 700 16px/34px "";
       height: 567px;
       padding: 0 1px;
       ul{
+        overflow: hidden;
+        width: 884px;
+        border-bottom: 13px solid #eee;
+        border-right: 13px solid #eee;
         li{
           border-left: 13px solid #eee;
           border-top: 13px solid #eee;
           width: 208px;
           height: 256px;
           float: left;
+          padding-top: 7px;
           .img{
             display: block;
             margin: 4px auto;
@@ -576,15 +581,7 @@ $font: 700 16px/34px "";
             color: #e00404;
           }
         }
-        .last{
-          border-right: 13px solid #eee;
-        }
-        .bottom{
-          border-bottom: 13px solid #eee;
-          padding-top: 15px;
-        }
       }
-
     }
   }
   .pp_right{
