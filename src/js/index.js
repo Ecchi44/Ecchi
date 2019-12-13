@@ -6,6 +6,7 @@
             this.foodO = document.querySelector(".food_t");
             this.foodT = document.querySelector(".foods2");
             this.foodS = document.querySelector(".foods3");
+            this.addCar_b = document.querySelector(".addCar_b");
             this.load();
             this.addEvent();
         }
@@ -67,6 +68,10 @@
         }
         addEvent(){
             var that = this;
+            window.scroll = function () {
+that.scroll()
+            };
+
             this.foodT.addEventListener("click",function(eve){
                 var e = eve || window.event;
                 var target = e.target || e.srcElement;
@@ -84,6 +89,15 @@
                 }
             })
         }
+        // scroll(){
+        //     this.scrollT = document.documentElement.scrollTop;
+        //     console.log(this.scrollT);
+        //     if(this.scrollT>1100){
+        //         this.addCar_b.style.display = "block";
+        //     }if (this.scrollT<1100){
+        //         this.addCar_b.style.display = "none";
+        //     }
+        // }
         setCookie(){
             this.goods = getCookie("goodsCookie") ? JSON.parse(getCookie("goodsCookie")) : [];
             if(this.goods.length < 1){

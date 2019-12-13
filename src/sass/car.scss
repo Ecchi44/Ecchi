@@ -37,7 +37,7 @@
   font:12px/38px "";
   text-align: center;
   .car_msg{
-    background-color: #eee;
+    background: #eee;
     display: none;
     .t1{
       width: 60px;
@@ -164,11 +164,12 @@
     padding-left: 350px;
     border: 1px solid #ccc;
     width: 638px;
-  a{
-    color: #196cba;
-    margin-right:5px;}
+    a{
+      color: #196cba;
+      margin-right:5px;}
   }
 }
+
 .footer{
   .link{
     text-align: center;

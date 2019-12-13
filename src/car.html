@@ -97,6 +97,7 @@
 </div>
 </body>
 <script src="./js/cookie.js"></script>
+<script src="./js/ajax.js"></script>
 <script>
     class car{
         constructor(){
@@ -143,10 +144,10 @@
         load(){
             ajaxGet(this.url,(res)=>{
                 this.res = JSON.parse(res);
-                this.getCookie()
+                this.getC()
             })
         }
-        getCookie(){
+        getC(){
             this.goods = getCookie("goodsCookie") ? JSON.parse(getCookie("goodsCookie")) : [];
             this.display();
         }
@@ -155,19 +156,52 @@
             for (let i=0;i<this.res.length;i++){
                 for (let j=0;j<this.goods.length;j++){
                     if(this.res[i].goodsId === this.goods[j].id){
-                        str += `<tr class="tr">
+                        str += `<tr class="tr" index="${this.goods[j].id}">
                     <td><input type="checkbox"></td>
                     <td class="txt"><p><img src="${this.res[i].img}" alt=""><span>${this.res[i].name}</span></p></td>
                     <td>现货</td>
                     <td>${this.res[i].price}</td>
-                    <td><input type="number" min="1" class="num" value="${this.goods[j].num}"></td>
-                    <td>￥${this.res[i].price}*${this.goods[j].num}</td>
+                    <td><input type="text" min="1" class="num" value="${this.goods[j].num}"></td>
+                    <td>￥${this.res[i].price * this.goods[j].num}</td>
                     <td><b class="del">删除</b></td>
                 </tr>`
                     }
                 }
             }
             this.tbody.innerHTML = str;
+        }
+        addEvent(){
+            var that = this;
+            this.tbody.addEventListener("click",function(eve){
+                var e = eve || window.event;
+                var target = e.target || e.srcElement;
+                if(target.className === "del"){
+                    that.id = target.parentNode.parentNode.getAttribute("index");
+                    target.parentNode.parentNode.remove();
+                    that.changeCookie(function(i){
+                        that.goods.splice(i,1);
+                    });
+                }
+            });
+            this.tbody.addEventListener("input",function(eve){
+                var e = eve || window.event;
+                var target = e.target || e.srcElement;
+                if(target.tagName === "INPUT"){
+                    that.id = target.parentNode.parentNode.getAttribute("index");
+                    that.changeCookie(function(i){
+                        that.goods[i].num = target.value;
+                    })
+                }
+            })
+        }
+        changeCookie(cb){
+            for(var i=0;i<this.goods.length;i++){
+                if(this.id === this.goods[i].id){
+                    cb(i);
+                    break;
+                }
+            }
+            setCookie("goodsCookie",JSON.stringify(this.goods))
         }
     }
     new Cart;

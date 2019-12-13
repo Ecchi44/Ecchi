@@ -279,6 +279,117 @@ $font: 700 16px/34px "";
     }
     .s_l{
       width: 600px;
+      ul{
+        li{
+          overflow: hidden;
+          color: #999;
+          width: 592px;
+          line-height: 30px;
+          .head_x{
+            float: left;
+          }
+          .mall{
+            color: #f22222;
+            font-size: 16px;
+            margin-left: -3px;
+
+          }
+          .star{
+            float: left;
+          }
+          .evaluation{
+            float: left;
+            a{
+              color: blue;
+              #total_num{
+                color: red;
+              }
+            }
+          }
+          .ins{
+            color: #666;
+            margin-left: 5px;
+            line-height: 20px;
+            margin-top: 5px;
+            #ckzt{
+              color: #666;
+              margin: 0 5px;
+            }
+          }
+          .ts{
+            float: left;
+          }
+          .sales{
+            float: left;
+          }
+
+        }
+        .line{
+          border-bottom: 1px dotted #C2C2C2;
+          padding-bottom: 5px;
+        }
+        #product01_r_div{
+          overflow: hidden;
+          color: #999;
+          width: 592px;
+          line-height: 30px;
+          .s_i{
+            float: left;
+            margin-top: 5px;
+            margin-left: 1px;
+            .number{
+              display: block;
+              float: left;
+              width: 15px;
+              height: 15px;
+              text-align: center;
+              line-height: 15px;
+              margin-top: 2px;
+              overflow: hidden;
+              border: 1px solid #ccc;
+              cursor: pointer;
+            }
+            .number_input{
+              width: 45px;
+              height: 20px;
+              line-height: 20px;
+              float: left;
+              margin: 0 5px;
+              text-align: center
+            ;border: 1px solid #cbcbcb;
+            }
+          }
+          .s_btn{
+            float: left;
+            overflow: hidden;
+            margin-top: 25px;
+            width: 532px;
+            margin-left: 61px;
+            color: #f22222;
+            .addCar{
+              background-color: #f22222;
+              border: 1px solid #eb0000;
+              color: #fff;
+              cursor: pointer;
+              font-size: 15px;
+              font-weight: bold;
+              height: 30px;
+              padding: 0 25px;
+            }
+            .modify{
+              background-color: #ff8800;
+              border: 1px solid #ff8800;
+              color: #fff;
+              cursor: pointer;
+              font-size: 15px;
+              font-weight: bold;
+              height: 30px;
+              margin-left: 20px;
+              padding: 0 25px;
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -300,6 +411,14 @@ $font: 700 16px/34px "";
         font:15px/36px "";
         height: 37px;
         background-color: #f22222;
+        float: left;
+      }
+      a{
+        float: right;
+        font-size: 15px;
+        line-height: 36px;
+        height: 36px;
+        margin: 0 20px;
       }
     }
     #tagContent{
