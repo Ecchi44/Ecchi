@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>银座网上商城-银座官方购物网站，货到满意付款，支持上门刷卡，网购上银座，时尚新生活</title>
+    <link rel="stylesheet" href="./libs/public.css" type="text/css">
+    <link rel="stylesheet" href="./css/reg.css" type="text/css">
+</head>
+<body>
+<div id="top" class="margin clear">
+    <a href="./index.html"><img src="./images/logo.jpg" alt=""></a>
+</div>
+<div id="banner" class="margin clear">
+    <p>欢迎来到银座网上商城</p>
+</div>
+<div id="reg_" class="margin clear">
+    <div class="user">
+        <div class="u_top">
+            <img src="./images/box_top.jpg" alt="">
+        </div>
+        <div class="u_login">
+            <h3>会员注册<br/><span>已是银座会员？<a href="./log.html">登录</a></span></h3>
+        </div>
+        <div class="u_c">
+<!--            <form action="" onsubmit="cheakAll">-->
+            <ul>
+                <li><span class="txt_c"><img src="./images/user_xing.jpg" alt="">用户名：</span><p><input type="text" name="user" class="txt" id="user"><span class="red user_msg">&nbsp;<img
+                        src="./images/right.png" alt=""></span></p></li>
+                <li><span class="txt_c"></span><p>6-20位字符，可由中文、英文、数字及"_"、"-"组成</p></li>
+                <li><span class="txt_c"><img src="./images/user_xing.jpg" alt="">密码：</span><p><input type="password" name="password" class="txt" id="pass1"><span class="red pass_msg">&nbsp;</span></p></li>
+                <li><span class="txt_c"></span><p>6-20位字符，可由英文、数字及"_"、"-"组成</p></li>
+                <li><span class="txt_c"><img src="./images/user_xing.jpg" alt="">确认密码：</span><p><input type="password" name="qr_password" class="txt" id="pass2"><span class="red qr_pass">&nbsp;</span></p></li>
+                <li><span class="txt_c"></span><p>6-20位字符，可由英文、数字及"_"、"-"组成</p></li>
+                <li><span class="txt_c"><img src="./images/user_xing.jpg" alt="">验证手机：</span><p><input type="tel" name="phone" class="txt" id="tel"><span class="red tel_msg">&nbsp;</span></p></li>
+                <li><span class="txt_c"></span><p>请输入常用手机，将用来找回密码、接收订单通知等</p></li>
+                <li><span class="txt_c"></span><p><input type="checkbox" name="agreement" id="agreement">您已阅读并认可银座网<a href="#">《用户服务协议》</a><span class="red qr_xy"></span></p></li>
+                <li><span class="txt_c"></span><p><input type="button" value="注册" class="reg_in" id="regin"></p></li>
+            </ul>
+<!--            </form>-->
+        </div>
+        <div class="u_b">,
+            <img src="./images/box_button.jpg" alt="">
+        </div>
+    </div>
+</div>
+<div class="footer margin clear">
+    <div class="link">
+        <p>
+            <a href="#">关于我们</a>|
+            <a href="#">联系我们</a>|
+            <a href="#">集贤纳才</a>|
+            <a href="#">服务条款</a>|
+            <a href="#">友情链接</a>|
+            <a href="#">隐私保护</a><br>
+            Copyright ©2008-2011 银座网上商城 版权所有。<img src="./images/copyright.gif" alt="">鲁ICP备09081806号<br>服务热线: 400-658-6060 | 大宗团购热线: 0531-67890997
+        </p>
+    </div>
+</div>
+<div id="success">
+    <img src="./images/logo.jpg" alt="">
+    <span>注册成功，正在跳转到登录...</span>
+</div>
+</body>
+<script src="./js/cookie.js"></script>
+<script>
+    class Reg{
+        constructor() {
+            this.user = document.getElementById("user");
+            this.pass = document.getElementById("pass1");
+            this.pass2 = document.getElementById("pass2");
+            this.tel = document.getElementById("tel");
+            this.xy = document.getElementById("agreement");
+            this.suc = document.getElementById("success");
+            this.regin = document.getElementById("regin");
+            this.user_msg = document.querySelector(".user_msg");
+            this.pass_msg = document.querySelector(".pass_msg");
+            this.qr_pass = document.querySelector(".qr_pass");
+            this.tel_msg = document.querySelector(".tel_msg");
+            this.qr_xy = document.querySelector(".qr_xy");
+            this.init();
+        }
+        init(){
+            this.regin.onclick=()=>{
+                this.u =this.user.value;
+                this.p =this.pass.value;
+                this.p2 =this.pass2.value;
+                this.t =this.tel.value;
+                this.register();
+            }
+        }
+        register(){
+            let reg_u = /^[a-z0-9_-]{6,20}$/;
+            let u = reg_u.test(this.n);
+            if(!u){
+                this.user_msg.innerHTML="用户名格式不正确";
+            }else{
+                this.user_msg.innerHTML="";
+            }
+            let reg_p = /^[a-z0-9_-]{6,20}$/;
+            var p = reg_p.test(this.p);
+            if(!p){
+                this.pass_msg.innerHTML="密码格式不正确";
+            }else{
+                this.pass_msg.innerHTML="";
+            }
+            if(this.p2!==this.p){
+                this.qr_pass.innerHTML = "两次输入的密码不一致！"
+            }
+            let reg_t = /^1\d{10}$/;
+            let t = reg_t.test(this.t);
+            if(!t){
+                this.tel_msg.innerHTML="请输入正确电话号码！";
+            }else{
+                this.tel_msg.innerHTML="";
+            }
+            let xy = this.xy.checked;
+            if(!xy){
+                this.qr_xy.innerHTML="请阅读并勾选用户服务协议！";
+            }else{
+                this.qr_xy.innerHTML="";
+            }
+            if(u&&p&&this.p2&&t&&xy){
+                this.setM()
+            }
+        }
+        setM(){
+            this.msg = getCookie("user") ? JSON.parse(getCookie("user")) : [];
+            if (this.msg.length<1){
+                this.msg.push({
+                    user:this.u,
+                    pass:this.p,
+                    onoff:0
+                });
+                this.success();
+            }else{
+                let type = this.msg.some((val,idx)=>{
+                    return val.user === this.u;
+                });
+                if (type){
+                    alert("用户名已被注册！")
+                }else{
+                    this.msg.push({
+                        user:this.u,
+                        pass:this.p,
+                        onoff:0
+                    });
+                    this.success();
+                }
+            }
+            setCookie("user",JSON.stringify(this.msg));
+        }
+        success(){
+            this.suc.style.display = "block";
+            setTimeout(()=>{
+                location.href = "./log.html"
+            },2000)
+        }
+    }
+    new  Reg;
+</script>
+</html>

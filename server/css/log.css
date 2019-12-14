@@ -1,0 +1,88 @@
+.margin {
+  width: 1000px;
+  margin: 0 auto; }
+
+body {
+  text-align: left;
+  color: #999; }
+
+#top {
+  height: 69px;
+  padding: 12px 0; }
+  #top a {
+    display: block;
+    width: 312px;
+    height: 69px; }
+    #top a img {
+      display: block;
+      width: 312px;
+      height: 69px; }
+
+#banner {
+  height: 32px;
+  line-height: 32px;
+  background-image: url(../images/banner_bg.jpg);
+  background-position: left center;
+  background-repeat: no-repeat;
+  text-align: right; }
+  #banner p {
+    font-weight: 700;
+    padding-right: 6px;
+    color: #eb0404; }
+
+.logo .log_l {
+  width: 525px;
+  float: left; }
+  .logo .log_l img {
+    margin: 32px 0 8px 28px; }
+
+.logo .log_r {
+  width: 419px;
+  height: 318px;
+  margin-top: 40px;
+  margin-left: 20px;
+  float: left;
+  background: url(../images/login_bj.jpg) no-repeat center; }
+  .logo .log_r h3 {
+    padding: 33px 0 0 34px;
+    margin-left: 5px; }
+  .logo .log_r ul {
+    padding-left: 58px;
+    margin-top: 35px; }
+    .logo .log_r ul li {
+      line-height: 25px; }
+      .logo .log_r ul li span {
+        color: red; }
+  .logo .log_r .pass {
+    font-size: 12px;
+    margin-top: 10px;
+    padding-left: 104px; }
+    .logo .log_r .pass span {
+      margin-right: 60px; }
+    .logo .log_r .pass a {
+      color: #eb0404; }
+  .logo .log_r .login {
+    width: 104px;
+    cursor: pointer;
+    height: 36px;
+    margin-top: 17px;
+    background: url(../images/login-anniu.jpg);
+    border: none;
+    color: #fff;
+    font: 700 14px/36px "";
+    margin-left: 141px; }
+  .logo .log_r p {
+    line-height: 21px;
+    margin: 15px 33px 0 0;
+    text-align: right; }
+
+.logo-b {
+  height: 25px;
+  margin-bottom: 25px; }
+
+.footer .link {
+  text-align: center; }
+  .footer .link p {
+    line-height: 25px; }
+    .footer .link p a {
+      margin: 0 12px; }

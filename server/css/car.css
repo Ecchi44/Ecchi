@@ -1,0 +1,147 @@
+.margin {
+  width: 990px;
+  margin: 0 auto; }
+
+#header {
+  height: 141px; }
+  #header .welcome {
+    height: 30px; }
+    #header .welcome h2 {
+      font: 16px/30px "";
+      background-color: #fbfbfb;
+      border-bottom: 1px solid #eee; }
+      #header .welcome h2 span {
+        color: #f00; }
+      #header .welcome h2 em:hover {
+        cursor: pointer; }
+  #header .pay_logo {
+    margin: 10px 0;
+    height: 90px; }
+    #header .pay_logo .pay_l_l {
+      float: left; }
+      #header .pay_logo .pay_l_l a {
+        background: url(../images/step_01.jpg) no-repeat 0 15px;
+        width: 240px;
+        height: 90px;
+        display: block; }
+    #header .pay_logo .pay_l_r {
+      padding-top: 25px;
+      width: 531px;
+      height: 65px;
+      float: right; }
+
+.car_t {
+  color: #666;
+  font: 12px/38px "";
+  text-align: center; }
+  .car_t .car_msg {
+    background: #eee;
+    display: none; }
+    .car_t .car_msg .t1 {
+      width: 60px; }
+      .car_t .car_msg .t1 input {
+        float: left;
+        margin: 13px 5px 0 17px; }
+    .car_t .car_msg .t2 {
+      width: 380px; }
+    .car_t .car_msg .t3 {
+      width: 120px; }
+    .car_t .car_msg .t4 {
+      width: 120px; }
+    .car_t .car_msg .t5 {
+      width: 120px; }
+    .car_t .car_msg .t6 {
+      width: 90px; }
+    .car_t .car_msg .t7 {
+      width: 100px; }
+    .car_t .car_msg tbody {
+      background: #fffdee; }
+      .car_t .car_msg tbody .tr {
+        width: 984px;
+        height: 90px;
+        overflow: visible;
+        line-height: 90px;
+        border-bottom: 1px solid #eee;
+        color: #666; }
+        .car_t .car_msg tbody .tr .txt p img {
+          display: block;
+          width: 55px;
+          height: 55px;
+          margin-top: 10px;
+          float: left; }
+        .car_t .car_msg tbody .tr .txt p span {
+          display: inline-block;
+          width: 260px;
+          font-size: 12px;
+          line-height: 20px;
+          float: left;
+          margin-top: 10px;
+          margin-left: 10px; }
+        .car_t .car_msg tbody .tr .num {
+          width: 80px; }
+        .car_t .car_msg tbody .tr .del {
+          cursor: pointer;
+          color: blue; }
+    .car_t .car_msg .end {
+      height: 132px;
+      background-color: #eee;
+      color: #333; }
+      .car_t .car_msg .end .pay_m {
+        width: 960px;
+        margin-top: 15px; }
+        .car_t .car_msg .end .pay_m .pay_mt {
+          height: 17px;
+          font: 12px/17px ""; }
+          .car_t .car_msg .end .pay_m .pay_mt input {
+            margin-left: 19px;
+            margin-top: 2px;
+            float: left; }
+          .car_t .car_msg .end .pay_m .pay_mt .all {
+            margin: 0 15px; }
+          .car_t .car_msg .end .pay_m .pay_mt span {
+            float: left; }
+          .car_t .car_msg .end .pay_m .pay_mt i {
+            width: 11px;
+            height: 11px;
+            margin: 3px;
+            display: block;
+            float: left; }
+          .car_t .car_msg .end .pay_m .pay_mt .del_ico {
+            background: url("../images/del.jpg") no-repeat;
+            float: left; }
+          .car_t .car_msg .end .pay_m .pay_mt .return {
+            background: url("../images/return.jpg") no-repeat;
+            margin-left: 15px;
+            float: left; }
+          .car_t .car_msg .end .pay_m .pay_mt .del_all {
+            cursor: pointer;
+            float: left; }
+          .car_t .car_msg .end .pay_m .pay_mt .pay_mtr {
+            float: right; }
+        .car_t .car_msg .end .pay_m .pay_mb {
+          font-size: 16px;
+          margin-top: 15px;
+          text-align: right;
+          font-weight: 700;
+          color: #333; }
+          .car_t .car_msg .end .pay_m .pay_mb .pay_all {
+            color: #ff8700; }
+  .car_t .empty {
+    height: 130px;
+    padding-top: 50px;
+    background: url(../images/flow_basket.jpg) no-repeat 228px 30px;
+    line-height: 20px;
+    text-align: left;
+    padding-left: 350px;
+    border: 1px solid #ccc;
+    width: 638px; }
+    .car_t .empty a {
+      color: #196cba;
+      margin-right: 5px; }
+
+.footer .link {
+  text-align: center; }
+  .footer .link p {
+    line-height: 25px; }
+    .footer .link p a {
+      margin: 0 12px; }

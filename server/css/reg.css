@@ -1,0 +1,133 @@
+.margin {
+  width: 1000px;
+  margin: 0 auto; }
+
+body {
+  text-align: left;
+  color: #999; }
+
+#top {
+  height: 69px;
+  padding: 12px 0; }
+  #top a {
+    display: block;
+    width: 312px;
+    height: 69px; }
+    #top a img {
+      display: block;
+      width: 312px;
+      height: 69px; }
+
+#banner {
+  height: 32px;
+  line-height: 32px;
+  background-image: url(../images/banner_bg.jpg);
+  background-position: left center;
+  background-repeat: no-repeat;
+  text-align: right; }
+  #banner p {
+    font-weight: 700;
+    padding-right: 6px;
+    color: #eb0404; }
+
+.user {
+  width: 818px;
+  margin: 15px 0 15px 91px;
+  background: url(../images/box_middle.jpg) center repeat-y; }
+  .user .u_top {
+    height: 5px; }
+    .user .u_top img {
+      display: block; }
+  .user .u_login {
+    height: 117px;
+    background: url(../images/user_top.jpg) no-repeat center bottom; }
+    .user .u_login h3 {
+      float: left;
+      margin: 28px 0 0 25px;
+      width: 210px;
+      height: 70px;
+      background: url(../images/user_box_icon.jpg) no-repeat;
+      padding: 2px 0 0 55px;
+      color: #333;
+      font-size: 20px;
+      font-weight: normal; }
+      .user .u_login h3 span {
+        position: relative;
+        top: -7px;
+        font-size: 12px; }
+        .user .u_login h3 span a {
+          font-size: 12px;
+          color: #266aaa; }
+  .user .u_c ul {
+    margin: 30px 0 0 80px;
+    width: 701px;
+    height: 482px; }
+    .user .u_c ul li {
+      line-height: 35px; }
+      .user .u_c ul li .txt_c {
+        float: left;
+        width: 162px;
+        height: 35px;
+        text-align: right; }
+      .user .u_c ul li p {
+        float: left;
+        width: 530px;
+        height: 35px; }
+        .user .u_c ul li p .txt {
+          width: 250px;
+          height: 24px;
+          border: #bebebe 1px solid; }
+        .user .u_c ul li p .yzm {
+          width: 100px;
+          height: 24px; }
+        .user .u_c ul li p a {
+          color: #266aaa; }
+        .user .u_c ul li p .reg_in {
+          width: 102px;
+          height: 36px;
+          margin-top: 17px;
+          background: url(../images/zhuce_anniu.jpg);
+          border: none;
+          color: white;
+          font-weight: 700;
+          font-size: 14px;
+          margin-left: 78px;
+          margin-bottom: 30px;
+          cursor: pointer; }
+      .user .u_c ul li .red {
+        color: red; }
+        .user .u_c ul li .red img {
+          display: none; }
+  .user .u_b {
+    height: 5px; }
+    .user .u_b img {
+      display: block; }
+
+.footer .link {
+  text-align: center; }
+  .footer .link p {
+    line-height: 25px; }
+    .footer .link p a {
+      margin: 0 12px; }
+      .footer .link p a:hover {
+        color: #F00; }
+
+#success {
+  width: 500px;
+  height: 200px;
+  text-align: center;
+  font-size: 35px;
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -250px;
+  margin-top: -100px;
+  z-index: 10;
+  border: 1px solid #eee;
+  background: #fff; }
+  #success img {
+    display: block;
+    margin: 0 auto; }
+  #success span {
+    color: #eb0404; }
