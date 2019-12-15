@@ -19,7 +19,7 @@
     </div>
     <div class="logo margin clear">
         <div class="logo_pic">
-            <a href="#"><img src="images/logo.jpg" alt=""></a>
+            <a href="http://localhost:844/index.html"><img src="images/logo.jpg" alt=""></a>
         </div>
         <div class="form">
             <div class="search">
@@ -314,135 +314,126 @@
     <div class="lists"></div>
     <a href="#" class="pgRight">下一页</a>
 </div>
+<div class="server margin clear">
+    <div class="help_s">
+        <div class="help_s_t_1">购物指南</div>
+        <div class="help_s_b">
+            <ul>
+                <li><a href="#">购物流程</a></li>
+                <li><a href="#">注册新会员</a></li>
+                <li><a href="#">常见问题</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="help_i"></div>
+    <div class="help_s">
+        <div class="help_s_t_2">配送方式</div>
+        <div class="help_s_b">
+            <ul>
+                <li><a href="#">配送说明</a></li>
+                <li><a href="#">大家电购买帮助</a></li>
+                <li><a href="#">运费标准</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="help_i"></div>
+    <div class="help_s">
+        <div class="help_s_t_3">支付方式</div>
+        <div class="help_s_b">
+            <ul>
+                <li><a href="#">线上支付</a></li>
+                <li><a href="#">电子发票</a></li>
+                <li><a href="#">礼品卡使用流程</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="help_i"></div>
+    <div class="help_s">
+        <div class="help_s_t_4">售后服务</div>
+        <div class="help_s_b">
+            <ul>
+                <li><a href="#">投诉与建议</a></li>
+                <li><a href="#">退换货服务</a></li>
+                <li><a href="#">退款说明</a></li>
+                <li><a href="#">验货说明</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="help_i"></div>
+    <div class="help_s">
+        <div class="help_s_t_5">帮助中心</div>
+        <div class="help_s_b">
+            <ul>
+                <li><a href="#">联系我们</a></li>
+                <li><a href="#">隐私声明</a></li>
+                <li><a href="#">法律声明</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="help_i"></div>
+    <div class="help_s">
+        <div class="help_s_t_6">微信专区</div>
+        <div class="weixin">
+            <img src="./images/weixin_foot.jpg" alt="">
+        </div>
+        <div class="weixin_m">
+            <a href="#">使用说明</a>
+        </div>
+    </div>
+</div>
+
+<div class="ls_x margin clear">
+    <div class="ls_xt">
+        <img src="./images/ls_xb.gif">
+    </div>
+    <div class="ls_xb">
+        <a href="#">鲁商集团</a>|
+        <a href="#">银座商城</a>|
+        <a target="_blank" href="#">银座家居</a>|
+        <a target="_blank" href="#">银座汽车</a>|
+        <a target="_blank" href="#">鲁商置业</a>|
+        <a href="#">银座旅游</a>|
+        <a target="_blank" href="#">佳驿酒店</a>|
+        <a target="_blank" href="#">山东商报社</a>|
+        <a href="#">山东新闻网</a>|
+        <a target="_blank" href="#">一卡通</a>|
+        <a target="_blank" href="#">银座珠宝交易中心</a>
+    </div>
+</div>
+
+<div class="bottom_red margin clear">
+    <div class="address">
+        <a class="f12w" target="_blank" href="http://localhost:844/index.html">首页　|</a>　
+        <a class="f12w" target="_blank" href="#">关于我们　|</a>　
+        <a class="f12w" target="_blank" href="#">联系我们　|</a>　
+        <a class="f12w" target="_blank" href="#">集贤纳才　|</a>　
+        <a class="f12w" target="_blank" href="#">服务条款　|</a>　
+        <a class="f12w" target="_blank" href="#">友情链接　 |</a>　
+        <a class="f12w" target="_blank" href="#">隐私保护</a>
+    </div>
+</div>
+
+<div class="footer margin clear">
+    <div class="bottom_copy">
+        <div class="bottom_tel">
+            <div class="footer_copy">Copyright ©2008-2015 银座网上商城 版权所有。</div>
+            <div class="footer_pic"><img src="./images/copyright.gif" width="33" height="37"></div>
+            <div class="footer_right">鲁ICP备09081806号  </div>
+        </div>
+        <div class="bottom_zibg_xb">服务热线: 400-658-6060 | 大宗团购热线: 0531-67890997</div>
+    </div>
+
+    <div class="yzw_bg">
+        <div class="yzw_bg_sy"><img src="./images/zxmbutton01_sy.gif"></div>
+        <div class="yzw_bg_sy"><img src="./images/zxmbutton02_sy.gif"></div>
+        <div class="yzw_bg_sy"><img src="./images/zxmbutton04_sy.gif" alt=""></div>
+        <div class="yzw_bg_sy"><img src="./images/zxmbutton05_sy.gif"></div>
+    </div>
+</div>
 </body>
-<script src="./js/ajax.js"></script>
-<script src="./js/cookie.js"></script>
+<script src="js/Common.js"></script>
+<script src="./libs/require.js" data-main="./js/lists.js"></script>
 <script>
-    class List{
-        constructor(){
-            this.url = "./data/goods.json";
-            this.list = document.querySelector(".list");
-            this.page= document.querySelector(".lists");
-            this.pgLeft = document.querySelector(".pgLeft");
-            this.pgRight= document.querySelector(".pgRight");
-            this.txt = document.querySelector(".search .txt");
-            this.index = 0;
-            let val = location.search;
-            this.reg=/\?name=(.*)/;
-            this.sear=this.reg.exec(val)?decodeURIComponent(this.reg.exec(val)[1]):"";
-            this.txt.value=this.sear;
-            this.search();
-            this.init();
-        }
-        search(){
-            if(this.sear===""){
-                location.href = "./index.html";
-            }
-        }
-        init(){
-            ajaxGet(this.url,(res)=>{
-                this.res=JSON.parse(res);
-                for(var i=0;i<this.res.length;i++){
-                    if(!this.res[i].name.includes(this.sear)){
-                        this.res.splice(i,1);
-                        i--;
-                    }
-                }
-                this.displayO();
-                this.displayT();
-                this.addEvent();
-            })
-        }
-        displayO(){
-            let str = "";
-            if(this.res.length<=0){
-                str=`<h2 class="empty">没有搜索到符合的商品</h2>`;
-            }else {
-                for (var i = this.index * 5; i < (this.index + 1) * 5; i++) {
-                    if (i >= this.res.length) break;
-                    str += `<li index="${this.res[i].img}">
-            <a href="./part.html?id=${this.res[i].img}" class="show">
-                <img src="${this.res[i].img}" alt="">
-                <p>${this.res[i].name}</p>
-                <span>¥${this.res[i].price}</span>
-            </a>
-            <a href="#" class="addCar">添加到购物车</a>
-        </li>`
-                }
-            }
-            this.list.innerHTML=str;
-        }
-        displayT(){
-            this.max=Math.ceil(this.res.length/5);
-            let str="";
-            for(var i=0;i<this.max;i++){
-                str+=`<a href="#">${i+1}</a>`
-            }
-            this.page.innerHTML=str;
-            this.listA=this.page.children;
-            for(let i=0;i<this.listA.length;i++){
-                this.listA[i].onclick=()=> {
-                    this.index=i;
-                    console.log(this.index);
-                    this.displayO();
-                    return false;
-                }
-            }
-        }
-        addEvent(){
-            this.pgLeft.onclick=()=>{
-                if(this.index===0){
-                    this.index=0
-                }else{
-                    this.index--;
-                }
-                this.displayO();
-                return false;
-            };
-            this.pgRight.onclick=()=>{
-                if(this.index===this.max-1){
-                    this.index=this.max-1
-                }else{
-                    this.index++;
-                }
-                this.displayO();
-                return false;
-            };
-            let that = this;
-            this.list.addEventListener("click",function(eve){
-                let e = eve || window.event;
-                let target = e.target || e.srcElement;
-                if(target.className === "addCar"){
-                    that.id = target.parentNode.getAttribute("index");
-                    that.setCookie();
-                }
-            })
-        }
-        setCookie(){
-            this.goods = getCookie("goodsCookie") ? JSON.parse(getCookie("goodsCookie")) : [];
-            if(this.goods.length < 1){
-                this.goods.push({
-                    id:this.id,
-                    num:1
-                })
-            }else{
-                var i = 0;
-                var onoff = this.goods.some((val,idx)=>{
-                    i = idx;
-                    return val.id === this.id;
-                });
-                if(!onoff){
-                    this.goods.push({
-                        id:this.id,
-                        num:1
-                    })
-                }else{
-                    this.goods[i].num++;
-                }
-            }
-            setCookie("goodsCookie",JSON.stringify(this.goods))
-        }
-    }
-    new List;
+
 </script>
 </html>

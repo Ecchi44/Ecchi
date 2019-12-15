@@ -25,7 +25,7 @@
         <table>
             <thead>
                 <tr>
-                    <th class="t1"><input type="checkbox">全选</th>
+                    <th class="t1">选择</th>
                     <th class="t2">商品信息</th>
                     <th class="t3">状态</th>
                     <th class="t4">价格</th>
@@ -40,16 +40,11 @@
                     <td class="txt"><p><img src="./images/step_01.jpg" alt=""><span></span></p></td>
                     <td>现货</td>
                     <td>3</td>
-                    <td><input type="number" min="1" class="num" value="1"></td>
-                    <td>5</td>
-                    <td><b class="del">删除</b></td>
-                </tr>
-                <tr class="tr">
-                    <td><input type="checkbox"></td>
-                    <td>2</td>
-                    <td>现货</td>
-                    <td>3</td>
-                    <td><input type="number" min="1" class="num" value="1"></td>
+                    <td>
+                        <span class="number" id="minus">-</span>
+                        <input type="text" id="number" name="number" class="input number_input" value="1">
+                        <span class="number" id="add">+</span>
+                    </td>
                     <td>5</td>
                     <td><b class="del">删除</b></td>
                 </tr>
@@ -58,7 +53,7 @@
         <div class="end">
         <div class="pay_m">
             <div class="pay_mt">
-                <input type="checkbox">
+                <input type="checkbox" id="all">
                 <span class="all">全选</span>
                 <span>
                     <i class="del_ico"></i>
@@ -96,49 +91,48 @@
     </div>
 </div>
 </body>
-<script src="./js/cookie.js"></script>
-<script src="./js/ajax.js"></script>
-<script>
-    class car{
-        constructor(){
-            this.welcome = document.querySelector(".welcome");
-            this.user = this.welcome.querySelector(".user_n");
-            this.exit = this.welcome.querySelector(".tc_dl");
-            this.getM();
-            this.addEvent()
-        }
-        addEvent(){
-            let that = this;
-            this.exit.onclick = function(){
-                that.msg[that.i].onoff = "0";
-                setCookie("user",JSON.stringify(that.msg));
-                location.reload();
-            }
-        }
-        getM(){
-            this.msg = getCookie("user") ? JSON.parse(getCookie("user")) : [];
-            this.i = null;
-            var type = this.msg.some((value,index)=> {
-                this.i = index;
-                return value.onoff === 1;
-            });
-            if (type){
-                console.log(this.msg[this.i].user);
-                this.user.innerHTML = this.msg[this.i].user;
+<script src="js/Common.js"></script>
+<!--<script>-->
+<!--    class car{-->
+<!--        constructor(){-->
+<!--            this.welcome = document.querySelector(".welcome");-->
+<!--            this.user = this.welcome.querySelector(".user_n");-->
+<!--            this.exit = this.welcome.querySelector(".tc_dl");-->
+<!--            this.getM();-->
+<!--            this.addEvent()-->
+<!--        }-->
+<!--        addEvent(){-->
+<!--            let that = this;-->
+<!--            this.exit.onclick = function(){-->
+<!--                that.msg[that.i].onoff = "0";-->
+<!--                setCookie("user",JSON.stringify(that.msg));-->
+<!--                location.reload();-->
+<!--            }-->
+<!--        }-->
+<!--        getM(){-->
+<!--            this.msg = getCookie("user") ? JSON.parse(getCookie("user")) : [];-->
+<!--            this.i = null;-->
+<!--            var type = this.msg.some((value,index)=> {-->
+<!--                this.i = index;-->
+<!--                return value.onoff === 1;-->
+<!--            });-->
+<!--            if (type){-->
+<!--                console.log(this.msg[this.i].user);-->
+<!--                this.user.innerHTML = this.msg[this.i].user;-->
 
-            }else {
-                location.href = "./log.html";
-            }
-        }
-    }
-    new car;
-</script>
+<!--            }else {-->
+<!--                location.href = "./log.html";-->
+<!--            }-->
+<!--        }-->
+<!--    }-->
+<!--    new car;-->
+<!--</script>-->
 <script>
     class Cart{
         constructor() {
-            this.url = "./data/goods.json";
+            this.url = "http://localhost:844/data/goods.json";
             this.tbody = document.querySelector("tbody");
-            this.addEvent();
+            this.all = document.getElementById("all");
             this.load();
         }
         load(){
@@ -157,18 +151,22 @@
                 for (let j=0;j<this.goods.length;j++){
                     if(this.res[i].goodsId === this.goods[j].id){
                         str += `<tr class="tr" index="${this.goods[j].id}">
-                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox" class="radio"></td>
                     <td class="txt"><p><img src="${this.res[i].img}" alt=""><span>${this.res[i].name}</span></p></td>
                     <td>现货</td>
                     <td>${this.res[i].price}</td>
-                    <td><input type="text" min="1" class="num" value="${this.goods[j].num}"></td>
-                    <td>￥${this.res[i].price * this.goods[j].num}</td>
+                    <td><span class="number minus">-</span>
+                        <input type="text" id="number" name="number" class="input number_input" value="${this.goods[j].num}">
+                        <span class="number add">+</span></td>
+                    <td class="j_q">￥${this.res[i].price * this.goods[j].num}</td>
                     <td><b class="del">删除</b></td>
                 </tr>`
                     }
                 }
             }
             this.tbody.innerHTML = str;
+            this.radios=document.querySelectorAll(".radio");
+            this.addEvent();
         }
         addEvent(){
             var that = this;
@@ -178,21 +176,44 @@
                 if(target.className === "del"){
                     that.id = target.parentNode.parentNode.getAttribute("index");
                     target.parentNode.parentNode.remove();
-                    that.changeCookie(function(i){
-                        that.goods.splice(i,1);
+                    that.change(function(i){
+
                     });
                 }
             });
-            this.tbody.addEventListener("input",function(eve){
+            this.tbody.addEventListener("click",function(eve){
                 var e = eve || window.event;
                 var target = e.target || e.srcElement;
-                if(target.tagName === "INPUT"){
+                if(target.className === "number add"){
                     that.id = target.parentNode.parentNode.getAttribute("index");
-                    that.changeCookie(function(i){
-                        that.goods[i].num = target.value;
-                    })
+                    target.previousElementSibling.value++
                 }
-            })
+                that.changeCookie(function(i){
+                    that.goods[i].num = target.previousElementSibling.value;
+                })
+                that.change();
+            });
+            this.tbody.addEventListener("click",function(eve){
+                var e = eve || window.event;
+                var target = e.target || e.srcElement;
+                if(target.className === "number minus"){
+                    that.id = target.parentNode.parentNode.getAttribute("index");
+                    target.nextElementSibling.value;
+                    if(target.nextElementSibling.value < 2){
+                        target.nextElementSibling.value=1;
+                    }else{
+                        target.nextElementSibling.value--;
+                    }
+                    that.changeCookie(function(i){
+                        console.log(target.nextElementSibling.value)
+                        that.goods[i].num = target.nextElementSibling.value;
+                    });
+                    that.change();
+                }
+            });
+        }
+        change(){
+
         }
         changeCookie(cb){
             for(var i=0;i<this.goods.length;i++){
@@ -202,6 +223,32 @@
                 }
             }
             setCookie("goodsCookie",JSON.stringify(this.goods))
+        }
+        ps(){
+            let num=0;
+            let num1=0;
+            for(var i=0;i<this.radios.length;i++){
+                if(this.radios[i].checked){
+                    num+=(this.radios[i].parentElement.parentElement.querySelector(".input").value)*1;
+                    num1+=(this.radios[i].parentElement.parentElement.querySelector(".j_q").innerHTML).slice(1)*1;
+                }
+            }
+            this.quantity.innerHTML=num;
+            this.j_q.innerHTML=num1;
+        }
+
+        allBtn(){
+            let type=true;
+            for(var i=0;i<this.options.length;i++){
+                if(!this.options[i].checked){
+                    type=false;
+                }
+            }
+            if(type){
+                this.allbtn.checked=type;
+            }else{
+                this.allbtn.checked=type;
+            }
         }
     }
     new Cart;

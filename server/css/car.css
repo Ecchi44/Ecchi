@@ -35,8 +35,7 @@
   font: 12px/38px "";
   text-align: center; }
   .car_t .car_msg {
-    background: #eee;
-    display: none; }
+    background: #eee; }
     .car_t .car_msg .t1 {
       width: 60px; }
       .car_t .car_msg .t1 input {
@@ -77,6 +76,25 @@
           float: left;
           margin-top: 10px;
           margin-left: 10px; }
+        .car_t .car_msg tbody .tr .number {
+          display: block;
+          float: left;
+          width: 15px;
+          height: 15px;
+          text-align: center;
+          line-height: 15px;
+          margin-top: 2px;
+          overflow: hidden;
+          border: 1px solid #ccc;
+          cursor: pointer; }
+        .car_t .car_msg tbody .tr .number_input {
+          width: 45px;
+          height: 20px;
+          line-height: 20px;
+          float: left;
+          margin: 0 5px;
+          text-align: center;
+          border: 1px solid #cbcbcb; }
         .car_t .car_msg tbody .tr .num {
           width: 80px; }
         .car_t .car_msg tbody .tr .del {
@@ -127,6 +145,7 @@
           .car_t .car_msg .end .pay_m .pay_mb .pay_all {
             color: #ff8700; }
   .car_t .empty {
+    display: none;
     height: 130px;
     padding-top: 50px;
     background: url(../images/flow_basket.jpg) no-repeat 228px 30px;

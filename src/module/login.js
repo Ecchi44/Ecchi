@@ -1,6 +1,5 @@
-;(function () {
-    "use strict";
-    class Index{
+define(()=>{
+    class Login{
         constructor() {
             this.login = document.querySelector(".logreg");
             this.welcome = document.querySelector(".welcome");
@@ -30,9 +29,9 @@
                 this.welcome.style.display = "block";
                 this.user.innerHTML = this.msg[this.i].user;
             }else {
-                location.href = "./log.html"
+                location.href = "http://localhost:844/log.html"
             }
         }
     }
-    new Index;
-})();
+    return Login;
+});

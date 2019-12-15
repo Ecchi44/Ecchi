@@ -35,7 +35,7 @@ gulp.task("unload",()=>{
 
 //3.gulp.watch()监听方法，当某个文件发生改变时，执行指定的命令
 gulp.task("listen",()=>{
-	gulp.watch(["./src/*"],["unload"])
+	gulp.watch(["./src/**/*"],["unload"])
 });
 
 
@@ -67,20 +67,20 @@ gulp.task("server",()=>{
 
 //gulp对js文件的合并/压缩/改名/ES6转ES5
 gulp.task("hygstf",()=>{
-	gulp.src("./src/js/*.js")
+	gulp.src("./src/module/*.module")
 	.pipe(babel())
-	.pipe(concat("index.js"))
-	.pipe(gulp.dest("server/js"))
+	.pipe(concat("index.module"))
+	.pipe(gulp.dest("server/module"))
 	.pipe(uglify())
-	.pipe(rename("index.min.js"))
-	.pipe(gulp.dest("server/js"));
+	.pipe(rename("index.min.module"))
+	.pipe(gulp.dest("server/module"));
 });
 
 //gulp对js文件的ES6转ES5
 gulp.task("stf",()=>{
-	gulp.src("./src/js/a.js")
+	gulp.src("./src/module/a.module")
 	.pipe(babel())
-	.pipe(gulp.dest("server/js"));
+	.pipe(gulp.dest("server/module"));
 });
 
 //gulp对scss文件的编译
